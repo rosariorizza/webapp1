@@ -1,0 +1,147 @@
+## Execute Log In Admin
+POST http://localhost:3001/api/sessions HTTP/1.1
+content-type: application/json
+
+{
+    "username": "rosario@test.it",
+    "password": "password"
+}
+###
+
+###
+
+GET http://localhost:3001/api/users HTTP/1.1
+
+###
+
+## Execute Log In Regular
+POST http://localhost:3001/api/sessions HTTP/1.1
+content-type: application/json
+
+{
+    "username": "saro@test.it",
+    "password": "password_saro"
+}
+###
+
+## Execute Log In Regular
+POST http://localhost:3001/api/sessions HTTP/1.1
+content-type: application/json
+
+{
+    "username": "valeria@test.it",
+    "password": "password_valeria"
+}
+###
+
+GET http://localhost:3001/api/sessions/current HTTP/1.1
+
+###
+
+DELETE http://localhost:3001/api/sessions/current HTTP/1.1
+
+###
+
+### Get all pages
+
+GET http://localhost:3001/api/pages HTTP/1.1
+
+###
+
+### Create new page
+
+POST http://localhost:3001/api/pages HTTP/1.1
+content-type: application/json
+
+{
+    "title": "test2",
+    "publicationDate": "2023-06-10",
+    "userId" : 4,
+    "contents" : [{
+        "type": "header",
+        "value" : "Test Title",
+        "position" : 0
+    },
+    {
+        "type": "image",
+        "value" : "office",
+        "position" : 1
+    }]
+}
+
+###
+
+### Get page
+
+GET http://localhost:3001/api/pages/70 HTTP/1.1
+
+###
+
+
+
+### Edit page not content
+
+PATCH http://localhost:3001/api/pages/63 HTTP/1.1
+content-type: application/json
+
+{
+"publicationDate":"",
+"title": "Page Title",
+"userId":3
+} 
+
+###
+
+### Delete page
+
+DELETE http://localhost:3001/api/pages/2 HTTP/1.1
+
+###
+
+
+### 
+GET http://localhost:3001/api/pages/63 HTTP/1.1
+###
+### Create Conten
+
+POST http://localhost:3001/api/pages/1/contents HTTP/1.1
+content-type: application/json
+
+{
+    "type": "paragraph",
+    "value" : "eheheheh",
+    "position" : 0
+}
+
+###
+
+###
+PUT http://localhost:3001/api/pages/1/contents/47 HTTP/1.1
+content-type: application/json
+
+{
+    "type": "image",
+    "value" : "vabbè non so che cambi",
+    "position" : 3
+} 
+###
+###
+DELETE http://localhost:3001/api/pages/1/contents/50 HTTP/1.1
+
+###
+
+### Create Conten
+
+POST http://localhost:3001/api/appName HTTP/1.1
+content-type: application/json
+
+{
+    "name" : "CMSmall"
+}
+
+###
+
+###
+GET http://localhost:3001/api/appName HTTP/1.1
+
+###
